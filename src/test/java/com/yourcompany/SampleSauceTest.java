@@ -30,6 +30,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 
 /**
@@ -135,7 +136,7 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider, SauceOnD
     public void verifyWVDMATest(String browser, String version, String os, Method method) throws Exception {
       	WebDriver driver = createDriver(browser, version, os, method.getName());
 		driver.get("https://www.americanexpress.com");
-		assertEquals("American Express", driver.getTitle());
+		assertTrue(driver.getTitle().contains("American Express"));
     }
 	
 
